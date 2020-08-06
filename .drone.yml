@@ -13,7 +13,7 @@ steps:
     environment:
       GOPROXY: https://athens.chuhlomin.com
     commands:
-      - make lint test run
+      - make test run
     when:
       event:
         - push
