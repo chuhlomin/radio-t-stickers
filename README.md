@@ -24,9 +24,9 @@ find out -type f -name "out/*.svg" -exec bash -c 'svgexport $0 $0.png' {} \;
 
 ## Источники
 
-* github.com/elquatro/rt-quotes
-* lurkmore.to/Umputun
-* lurkmore.to/Бобук
+* [github.com/elquatro/rt-quotes](https://github.com/elquatro/rt-quotes)
+* [lurkmore.to/Umputun](https://lurkmore.to/Umputun)
+* [lurkmore.to/Бобук](https://lurkmore.to/Бобук)
 
 ## Контакты
 
