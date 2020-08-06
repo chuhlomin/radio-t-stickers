@@ -18,8 +18,8 @@ steps:
       event:
         - push
       branch:
-        - master
+        - main
 
 trigger:
   branch:
-    - master
+    - main
