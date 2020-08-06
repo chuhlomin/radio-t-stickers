@@ -17,7 +17,7 @@ make run
 Затем, c помощью [svgexport](https://github.com/shakiba/svgexport) SVG-стикеры конвертируются в PNG.
 
 ```bash
-find out -type f -name "out/*.svg" -exec bash -c 'svgexport $0 $0.png' {} \;
+find out -type f -name "*.svg" -exec bash -c 'svgexport $0 $0.png' {} \;
 ```
 
 Наконец, стикеры вручную отправляются боту [@Stickers](https://t.me/Stickers).
