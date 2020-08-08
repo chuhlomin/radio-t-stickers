@@ -37,9 +37,10 @@ type Sticker struct {
 	SpeakerNick string
 	Emoji       string
 
-	Speaker Speaker
-	Lines   []string
-	Sizes   Sizes
+	Speaker   Speaker
+	Lines     []string
+	Sizes     Sizes
+	FontStyle string
 }
 
 type Sizes struct {
@@ -226,11 +227,20 @@ func loadStickers(speakers map[string]Speaker) (stickers []Sticker, err error) {
 			continue
 		}
 
+		emoji := record[1]
+
+		// don't want to add new column to stickers.csv just for one sticker
+		fontStyle := "normal"
+		if emoji == "🛑" {
+			fontStyle = "italic"
+		}
+
 		stickers = append(stickers, Sticker{
-			Speaker: speaker,
-			Emoji:   record[1],
-			Lines:   lines,
-			Sizes:   calculateSizes(len(lines)),
+			Speaker:   speaker,
+			Emoji:     emoji,
+			Lines:     lines,
+			Sizes:     calculateSizes(len(lines)),
+			FontStyle: fontStyle,
 		})
 	}
 
@@ -336,7 +346,7 @@ func loadTemplate() (*template.Template, error) {
 	<g id="sticker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 		<path id="background" fill="#FFFFFF" d="{{ .Sizes.BackgroundShape }}"></path>
         <path id="balloon" stroke="#EBEBEB" fill="#F4F4F4" d="{{ .Sizes.BalloonShape }}"></path>
-		<text id="message" font-family="SFUIDisplay-Regular, SF UI Display" font-size="30" font-weight="normal" letter-spacing="0.5" fill="#000000">
+		<text id="message" font-family="SFUIDisplay-Regular, SF UI Display" font-size="30" font-weight="normal" font-style="{{ .FontStyle }}" letter-spacing="0.5" fill="#000000">
 			{{ range $i, $line := .Lines }}
 			<tspan x="159" y="{{ index $.Sizes.Lines $i }}">{{ $line }}</tspan>
 			{{ end }}
