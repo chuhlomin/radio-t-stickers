@@ -1,6 +1,6 @@
 module github.com/chuhlomin/radio-t-stickers
 
-go 1.13
+go 1.16
 
 require (
 	github.com/go-pkgz/lgr v0.7.0
