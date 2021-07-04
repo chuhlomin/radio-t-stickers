@@ -1,6 +1,6 @@
 # Неофициальный Телеграм-стикерпак Радио-Т
 
-[![Drone Build Status](https://ci.chuhlomin.com/api/badges/chuhlomin/radio-t-stickers/status.svg)](https://ci.chuhlomin.com/chuhlomin/radio-t-stickers)
+[![main](https://github.com/chuhlomin/radio-t-stickers/actions/workflows/main.yml/badge.svg?branch=main&event=push)](https://github.com/chuhlomin/radio-t-stickers/actions/workflows/main.yml)
 
 ## Что это
 
