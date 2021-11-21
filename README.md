@@ -8,16 +8,22 @@
 
 ## Как это работает
 
-Приложение на Go генерирует стикеры в формате SVG на основе `speakers.csv`, `stickers.csv` и аватаров в папке `img`.
+Приложение на [Go](https://golang.org) генерирует стикеры в формате SVG на основе `speakers.csv`, `stickers.csv` и аватаров в папке `img`.
 
 ```bash
 make run
 ```
 
-Затем, c помощью [svgexport](https://github.com/shakiba/svgexport) SVG-стикеры конвертируются в PNG.
+Для конвертации SVG-стикеров в PNG используется [svgexport](https://github.com/shakiba/svgexport):
 
 ```bash
-find out -type f -name "*.svg" -exec bash -c 'svgexport $0 $0.png' {} \;
+npm install svgexport -g
+```
+
+Для конвертации всех SVG файлов в `out` директории:
+
+```bash
+make convert
 ```
 
 Наконец, стикеры вручную отправляются боту [@Stickers](https://t.me/Stickers).
