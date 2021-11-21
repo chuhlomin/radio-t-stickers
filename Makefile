@@ -18,3 +18,10 @@ lint:
 ## run: Runs go app
 run:
 	@go run .
+
+.PHONY: convert
+## convert: Runs `svgexport` for all .svg files in out/ directory
+convert:
+	@for file in out/*.svg; do \
+		svgexport $$file $$file.png; \
+	done
